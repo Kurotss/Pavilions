@@ -1,0 +1,52 @@
+﻿<Window x:Class="Pavilions.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pavilions"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="39*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#78909C" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Павильоны" Foreground="White" FontSize="30" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="12" Background="#78909C" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Войдите" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"
+                   Foreground="#3B3B3B" Width="103"/>
+        <TextBlock Text="Логин" Grid.Row="4" FontSize="25" HorizontalAlignment="Right" Margin="0,0,30,0"/>
+        <TextBlock Text="Пароль" Grid.Row="6" FontSize="25" HorizontalAlignment="Right" Margin="0,0,30,0"/>
+        <TextBox Name="LoginBox" Grid.Row="4" Grid.Column="1" BorderBrush="DimGray" Margin="0,0,120,0" FontSize="25"/>
+        <PasswordBox Name="Password" Grid.Row="6" Grid.Column="1" BorderBrush="DimGray" Margin="0,0,120,0" MaxLength="50"
+                     PasswordChar="*" FontSize="25"/>
+        <Button Content="Войти" Grid.Row="8" Grid.ColumnSpan="2" FontSize="25" Background="#78909C"
+                Foreground="White" Click="Login" Width="180" Name="LoginButton"/>
+        <Border BorderBrush="#3B3B3B" BorderThickness="1" Background="White" Width="110" Grid.Row="8" HorizontalAlignment="Right"
+                Name="Captcha" Margin="0,0,15,0" Visibility="Hidden">
+            <TextBlock Name="CaptchaBlock" FontSize="14" Width="100">
+                <TextBlock.RenderTransform>
+                    <MatrixTransform Matrix="1 0 1.5 2 1 0"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Border>
+        <TextBox Name="CaptchaBox" Grid.Row="8" Grid.Column="1" BorderBrush="DimGray" Width="100" FontSize="25"
+                 HorizontalAlignment="Left" Visibility="Hidden" MaxLength="5"/>
+    </Grid>
+</Window>

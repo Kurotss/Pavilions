@@ -1,0 +1,41 @@
+﻿<Page x:Class="Pavilions.ListPavilions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pavilions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListPavilions">
+
+    <Grid Background="White">
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Этаж:" FontSize="20" Margin="0,10"/>
+                    <TextBox Name="FloorBox" Width="50" Margin="10" FontSize="20" ToolTip="Этаж" TextChanged="FilterFloor"/>
+                    <ComboBox Name="StatusBox" Width="190" Margin="10" FontSize="20" ToolTip="Статус" SelectionChanged="FilterStatus">
+                        <TextBlock Text="Арендован"/>
+                        <TextBlock Text="Свободен"/>
+                        <TextBlock Text="Удален"/>
+                        <TextBlock Text="Забронирован"/>
+                    </ComboBox>
+                    <Button Content="Добавить павильон" FontSize="15" Width="160" Margin="10" Click="AddPavilion"/>
+                    <Button Content="Удалить павильон" FontSize="15" Width="160" Margin="10" Click="DeletePavilion"/>
+                </StackPanel>
+                <DataGrid AutoGenerateColumns="False" Name="DataPavilions" BeginningEdit="OpenChangeInfo">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название ТЦ" Binding="{Binding NameCenter}"/>
+                        <DataGridTextColumn Header="Статус ТЦ" Binding="{Binding StatusCenter}"/>
+                        <DataGridTextColumn Header="Номер павильона" Binding="{Binding NumberPavilion}"/>
+                        <DataGridTextColumn Header="Этаж" Binding="{Binding NumberFloor}"/>
+                        <DataGridTextColumn Header="Статус павильона" Binding="{Binding StatusPavilion}"/>
+                        <DataGridTextColumn Header="Площадь" Binding="{Binding Area}"/>
+                        <DataGridTextColumn Header="Стоимость кв. м" Binding="{Binding CostOfArea}"/>
+                        <DataGridTextColumn Header="КДСП" Binding="{Binding ValAddRatio}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

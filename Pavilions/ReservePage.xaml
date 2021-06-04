@@ -1,0 +1,61 @@
+﻿<Page x:Class="Pavilions.ReservePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pavilions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReservePage">
+
+    <Grid Background="White">
+        <StackPanel>
+            <TextBlock Text="Аренда места" HorizontalAlignment="Center" FontSize="28" Margin="20"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="Арендатор"/>
+                    <TextBlock Text="Торговый центр"/>
+                    <TextBlock Text="Павильон"/>
+                    <TextBlock Text="Дата начала аренды"/>
+                    <TextBlock Text="Дата конца аренды"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Name="FieldsPanel">
+                    <StackPanel.Resources>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="Width" Value="300"/>
+                        </Style>
+                        <Style TargetType="DatePicker">
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="Width" Value="300"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <ComboBox Name="RenterList"/>
+                    <ComboBox Name="CentersList" SelectionChanged="CreatePavilionsList"/>
+                    <ComboBox Name="PavilionsList"/>
+                    <DatePicker Name="DateStart"/>
+                    <DatePicker Name="DateEnd"/>
+                </StackPanel>
+            </Grid>
+            <Button Name="ReserveButton" Content="Арендовать павильон" Width="220" Margin="20" FontSize="20" Click="ReservePavilion"/>
+        </StackPanel>
+    </Grid>
+</Page>
